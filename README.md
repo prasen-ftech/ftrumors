@@ -1,0 +1,2 @@
+# ftrumors
+Sample Django Application
