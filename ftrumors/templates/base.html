@@ -1,11 +1,25 @@
 <html>
 <head>
-	<title></title>
+  <title>FTECH Rumors</title>
+  <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css" />
 </head>
 <body>
- <h1>FTech Rumors</h1>
+<h1>FTECH Rumors</h1>
+
 {% block content %}
 {% endblock %}
 
+<footer>
+  <p>
+    <a href="{% url 'home' %}">Home</a> |
+{% if user.is_authenticated %}
+	<a href="{% url 'profile' slug=user.username %}"><b>{{ user.username }}</b></a> |
+    <a href="{% url 'logout' %}">Logout</a> |
+{% else %}
+	<a href="{% url 'registration_register' %}">Register</a>
+    <a href="{% url 'login' %}">Login</a> 
+{% endif %}
+  </p>
+</footer>
 </body>
 </html>
